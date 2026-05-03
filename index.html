@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bruno Eugênio Santos | Dev & InfoSec</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    /* ── HERO ── */
+    .hero {
+      min-height: calc(100vh - 56px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 1.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.5rem;
+      color: var(--green);
+      letter-spacing: 3px;
+      margin-bottom: 1rem;
+    }
+
+    .hero-name {
+      font-family: 'Press Start 2P', monospace;
+      font-size: clamp(1rem, 4vw, 1.8rem);
+      color: var(--white);
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-name .highlight { color: var(--yellow); }
+
+    .hero-role {
+      font-family: 'VT323', monospace;
+      font-size: 2rem;
+      color: var(--cyan);
+      margin-bottom: 2rem;
+    }
+
+    .hero-desc {
+      font-size: 1.25rem;
+      color: var(--white);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      border-left: 4px solid var(--yellow);
+      padding-left: 1.2rem;
+    }
+
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    /* terminal window */
+    .terminal {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 340px;
+      display: none;
+    }
+
+    @media(min-width: 820px){ .terminal { display: block; } }
+
+    .terminal-bar {
+      background: #2a2a3e;
+      border: 4px solid var(--border);
+      border-bottom: none;
+      padding: 0.5rem 0.8rem;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .t-dot {
+      width: 12px; height: 12px;
+      border: 2px solid;
+      display: inline-block;
+    }
+    .t-dot.r { border-color: var(--red);    background: var(--red); }
+    .t-dot.y { border-color: var(--yellow); background: var(--yellow); }
+    .t-dot.g { border-color: var(--green);  background: var(--green); }
+
+    .terminal-body {
+      background: #080810;
+      border: 4px solid var(--border);
+      padding: 1.2rem;
+      font-family: 'VT323', monospace;
+      font-size: 1rem;
+      line-height: 1.9;
+      box-shadow: 0 0 30px rgba(0,255,136,0.1), 4px 4px 0 #000;
+    }
+
+    .t-prompt { color: var(--green); }
+    .t-cmd    { color: var(--white); }
+    .t-out    { color: var(--cyan);  }
+    .t-warn   { color: var(--yellow);}
+    .t-err    { color: var(--red);   }
+
+    /* status bar bottom */
+    .status-bar {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      background: var(--green);
+      color: #000;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.45rem;
+      padding: 0.4rem 1rem;
+      display: flex;
+      justify-content: space-between;
+      z-index: 200;
+    }
+
+    /* pixel deco grid bg */
+    .hero-bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px);
+      background-size: 32px 32px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* skills quick strip */
+    .skills-strip {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    /* animated counter */
+    #clock {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.45rem;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">&lt;<span>BE</span>S/&gt;</a>
+  <ul class="nav-links">
+    <li><a href="index.html"    class="active">HOME</a></li>
+    <li><a href="sobre.html"            >SOBRE</a></li>
+    <li><a href="projetos.html"         >PROJETOS</a></li>
+    <li><a href="contato.html"          >CONTATO</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section class="hero">
+    <div class="hero-bg-grid"></div>
+
+    <p class="hero-eyebrow">// INICIALIZANDO SISTEMA...</p>
+
+    <h1 class="hero-name glitch" data-text="Bruno Eugênio Santos">
+      Bruno <span class="highlight">Eugênio</span> Santos
+    </h1>
+
+    <p class="hero-role typewriter">Analise e Des. de Sistemas</p>
+
+    <p class="hero-desc">
+      Estudante apaixonado por tecnologia, com foco especial em
+      <strong style="color:var(--red)">Segurança da Informação</strong>.
+      Explorando o universo do desenvolvimento enquanto construo minha jornada acadêmica.
+    </p>
+
+    <div class="skills-strip">
+      <span class="tag tag-green">HTML/CSS</span>
+      <span class="tag tag-cyan">JavaScript</span>
+      <span class="tag tag-yellow">Python</span>
+      <span class="tag tag-red">InfoSec</span>
+      <span class="tag tag-green">Linux</span>
+      <span class="tag tag-cyan">Docker</span>
+      <span class="tag tag-yellow">Redes</span>
+    </div>
+
+    <div class="hero-btns" style="margin-top:2rem;">
+      <a href="projetos.html" class="btn btn-green">VER PROJETOS</a>
+      <a href="https://github.com/brunoeugeniodev" target="_blank" rel="noopener" class="btn btn-outline">GITHUB ↗</a>
+    </div>
+
+    <!-- Terminal decorativo -->
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span class="t-dot r"></span>
+        <span class="t-dot y"></span>
+        <span class="t-dot g"></span>
+        <span style="font-family:'Press Start 2P',monospace;font-size:0.4rem;color:var(--muted);margin-left:0.5rem;">terminal</span>
+      </div>
+      <div class="terminal-body">
+        <div><span class="t-prompt">guest@bes:~$</span> <span class="t-cmd">whoami</span></div>
+        <div class="t-out">Bruno Eugênio Santos</div>
+        <div style="margin-top:0.5rem"><span class="t-prompt">guest@bes:~$</span> <span class="t-cmd">cat status.txt</span></div>
+        <div class="t-out">🎓 ADS — cursando</div>
+        <div class="t-out">🔐 InfoSec — estudando</div>
+        <div class="t-out">💼 Exp. profissional — em breve</div>
+        <div style="margin-top:0.5rem"><span class="t-prompt">guest@bes:~$</span> <span class="t-cmd">ls projetos/</span></div>
+        <div class="t-warn">github.com/brunoeugeniodev</div>
+        <div style="margin-top:0.5rem"><span class="t-prompt">guest@bes:~$</span> <span class="t-cmd">_<span class="blink">█</span></span></div>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+<footer>
+  <p>Feito com <span>♥</span> e muitos erros de sintaxe por
+    <a href="index.html">Bruno Eugênio Santos</a> &nbsp;|&nbsp;
+    <a href="https://github.com/brunoeugeniodev" target="_blank">GitHub</a>
+  </p>
+  <p style="margin-top:0.5rem; font-size:0.8rem; color:var(--border)">
+    &copy; <span id="year"></span>
+  </p>
+</footer>
+
+<div class="status-bar">
+  <span>STATUS: ONLINE</span>
+  <span id="clock">--:--:--</span>
+  <span>v1.0.0</span>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  function tick() {
+    const now = new Date();
+    document.getElementById('clock').textContent =
+      String(now.getHours()).padStart(2,'0') + ':' +
+      String(now.getMinutes()).padStart(2,'0') + ':' +
+      String(now.getSeconds()).padStart(2,'0');
+  }
+  tick(); setInterval(tick, 1000);
+</script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contato | Bruno Eugênio Santos</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    @media(max-width:680px){ .contact-grid { grid-template-columns: 1fr; } }
+
+    .card-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.6rem;
+      color: var(--cyan);
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .card-title::before { content: '■ '; color: var(--green); }
+
+    /* contact links */
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0.9rem 1rem;
+      background: var(--bg2);
+      border: 2px solid var(--border);
+      text-decoration: none;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+      transition: border-color 0.1s, transform 0.1s;
+    }
+    .contact-link:hover {
+      border-color: var(--green);
+      transform: translate(-2px,-2px);
+      box-shadow: 4px 4px 0 rgba(0,0,0,0.5);
+    }
+    .contact-link .icon {
+      font-size: 1.6rem;
+      width: 36px;
+      text-align: center;
+    }
+    .contact-link .info {}
+    .contact-link .lbl {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.45rem;
+      color: var(--muted);
+      display: block;
+    }
+    .contact-link .val {
+      font-size: 1.1rem;
+      color: var(--cyan);
+    }
+
+    /* form */
+    .form-group { margin-bottom: 1.2rem; }
+    .form-label {
+      display: block;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.45rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+    }
+    .form-label::before { content: '> '; color: var(--green); }
+
+    input[type="text"], input[type="email"], textarea {
+      width: 100%;
+      background: var(--bg);
+      border: 2px solid var(--border);
+      color: var(--white);
+      font-family: 'VT323', monospace;
+      font-size: 1.1rem;
+      padding: 0.6rem 0.8rem;
+      outline: none;
+      transition: border-color 0.1s;
+      resize: vertical;
+    }
+    input:focus, textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 8px rgba(0,255,136,0.2);
+    }
+    textarea { min-height: 120px; }
+
+    .form-submit {
+      width: 100%;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.55rem;
+      padding: 0.9rem;
+      background: var(--green);
+      color: #000;
+      border: none;
+      cursor: pointer;
+      box-shadow: 4px 4px 0 #007a40;
+      transition: all 0.1s;
+    }
+    .form-submit:hover  { background: #33ffaa; transform: translate(-1px,-1px); box-shadow: 5px 5px 0 #007a40; }
+    .form-submit:active { transform: translate(2px,2px); box-shadow: 2px 2px 0 #007a40; }
+
+    #form-msg {
+      margin-top: 0.8rem;
+      padding: 0.6rem;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.45rem;
+      display: none;
+    }
+    #form-msg.ok  { border: 2px solid var(--green); color: var(--green); display:block; }
+    #form-msg.err { border: 2px solid var(--red);   color: var(--red);   display:block; }
+
+    /* availability badge */
+    .availability {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 1rem;
+      background: rgba(0,255,136,0.06);
+      border: 2px solid var(--green);
+      margin-bottom: 1.5rem;
+    }
+    .avail-dot {
+      width: 14px; height: 14px;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+      animation: pulse 1.5s ease infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse {
+      0%,100% { opacity:1; box-shadow: 0 0 8px var(--green); }
+      50%      { opacity:0.5; box-shadow: 0 0 16px var(--green); }
+    }
+    .avail-text {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.45rem;
+      color: var(--green);
+    }
+    .avail-sub { font-size: 0.9rem; color: var(--muted); margin-top: 0.2rem; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">&lt;<span>BE</span>S/&gt;</a>
+  <ul class="nav-links">
+    <li><a href="index.html"   >HOME</a></li>
+    <li><a href="sobre.html"   >SOBRE</a></li>
+    <li><a href="projetos.html">PROJETOS</a></li>
+    <li><a href="contato.html" class="active">CONTATO</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section class="section">
+    <p class="section-title">CONTATO</p>
+    <p class="section-sub">// Abrindo canal de comunicação...</p>
+
+    <div class="availability">
+      <div class="avail-dot"></div>
+      <div>
+        <p class="avail-text">DISPONÍVEL PARA COLABORAÇÕES</p>
+        <p class="avail-sub">Aceito sugestões, feedbacks e novos projetos acadêmicos!</p>
+      </div>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- Links de contato -->
+      <div class="pixel-box" style="padding:1.5rem">
+        <p class="card-title">CANAIS</p>
+
+        <a href="https://github.com/brunoeugeniodev" target="_blank" rel="noopener" class="contact-link">
+          <span class="icon">🐙</span>
+          <div class="info">
+            <span class="lbl">GITHUB</span>
+            <span class="val">brunoeugeniodev</span>
+          </div>
+          <span style="margin-left:auto;color:var(--muted);font-size:0.9rem">↗</span>
+        </a>
+
+        <a href="mailto:brunoeugeniodev@email.com" class="contact-link">
+          <span class="icon">📧</span>
+          <div class="info">
+            <span class="lbl">EMAIL</span>
+            <span class="val">brunoeugeniodev@email.com</span>
+          </div>
+          <span style="margin-left:auto;color:var(--muted);font-size:0.9rem">↗</span>
+        </a>
+
+        <a href="https://linkedin.com/in/brunoeugeniodev" target="_blank" rel="noopener" class="contact-link">
+          <span class="icon">💼</span>
+          <div class="info">
+            <span class="lbl">LINKEDIN</span>
+            <span class="val">brunoeugeniodev</span>
+          </div>
+          <span style="margin-left:auto;color:var(--muted);font-size:0.9rem">↗</span>
+        </a>
+
+        <div class="pixel-box" style="padding:1rem;margin-top:1rem;background:rgba(255,230,0,0.04);border-color:var(--yellow)">
+          <p style="font-family:'Press Start 2P',monospace;font-size:0.4rem;color:var(--yellow);margin-bottom:0.5rem">⚠ AVISO</p>
+          <p style="font-size:0.95rem;color:var(--muted)">
+            Ainda não possuo experiência profissional, mas estou em busca de
+            oportunidades de estágio e projetos colaborativos na área de
+            desenvolvimento e segurança da informação.
+          </p>
+        </div>
+      </div>
+
+      <!-- Formulário -->
+      <div class="pixel-box" style="padding:1.5rem">
+        <p class="card-title">ENVIE UMA MENSAGEM</p>
+
+        <div class="form-group">
+          <label class="form-label" for="name">NOME</label>
+          <input type="text" id="name" placeholder="Seu nome aqui..."/>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="email">EMAIL</label>
+          <input type="email" id="email" placeholder="seu@email.com"/>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="subject">ASSUNTO</label>
+          <input type="text" id="subject" placeholder="Sobre o quê?"/>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="message">MENSAGEM</label>
+          <textarea id="message" placeholder="Digite sua mensagem..."></textarea>
+        </div>
+
+        <button class="form-submit" id="submit-btn" onclick="handleSubmit()">
+          ▶ ENVIAR MENSAGEM
+        </button>
+        <div id="form-msg"></div>
+
+        <p style="font-size:0.8rem;color:var(--muted);margin-top:0.8rem;text-align:center">
+          * Este formulário abre seu cliente de e-mail padrão
+        </p>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Feito com <span>♥</span> e muitos erros de sintaxe por
+    <a href="index.html">Bruno Eugênio Santos</a> &nbsp;|&nbsp;
+    <a href="https://github.com/brunoeugeniodev" target="_blank">GitHub</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;color:var(--border)">&copy; <span id="year"></span></p>
+</footer>
+
+<div class="status-bar">
+  <span>STATUS: ONLINE</span>
+  <span id="clock">--:--:--</span>
+  <span>v1.0.0</span>
+</div>
+
+<script>
+function handleSubmit() {
+  const name    = document.getElementById('name').value.trim();
+  const email   = document.getElementById('email').value.trim();
+  const subject = document.getElementById('subject').value.trim();
+  const message = document.getElementById('message').value.trim();
+  const msg     = document.getElementById('form-msg');
+
+  if (!name || !email || !message) {
+    msg.className = 'err';
+    msg.textContent = '⚠ PREENCHA OS CAMPOS OBRIGATÓRIOS!';
+    return;
+  }
+
+  const mailto = `mailto:brunoeugeniodev@email.com?subject=${encodeURIComponent(subject || 'Contato pelo portfólio')}&body=${encodeURIComponent(`De: ${name} (${email})\n\n${message}`)}`;
+  window.location.href = mailto;
+
+  msg.className = 'ok';
+  msg.textContent = '✓ ABRINDO SEU CLIENTE DE EMAIL...';
+}
+
+document.getElementById('year').textContent = new Date().getFullYear();
+function tick() {
+  const n = new Date();
+  document.getElementById('clock').textContent =
+    String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0')+':'+String(n.getSeconds()).padStart(2,'0');
+}
+tick(); setInterval(tick,1000);
+</script>
+</body>
+</html>

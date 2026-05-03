@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sobre | Bruno Eugênio Santos</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    @media(max-width:680px){ .about-grid { grid-template-columns: 1fr; } }
+
+    .card {
+      padding: 1.5rem;
+    }
+
+    .card-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.6rem;
+      color: var(--cyan);
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .card-title::before { content: '■ '; color: var(--green); }
+
+    .card p { font-size: 1.1rem; color: var(--white); line-height: 1.8; }
+
+    /* skill bars */
+    .skill-item {
+      margin-bottom: 1.2rem;
+    }
+    .skill-label {
+      display: flex;
+      justify-content: space-between;
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.45rem;
+      color: var(--white);
+      margin-bottom: 0.4rem;
+    }
+    .skill-bar {
+      height: 16px;
+      background: var(--border);
+      border: 2px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .skill-fill {
+      height: 100%;
+      position: relative;
+      transition: width 1.2s ease;
+    }
+    /* pixel steps on bar */
+    .skill-fill::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 6px,
+        rgba(0,0,0,0.25) 6px,
+        rgba(0,0,0,0.25) 8px
+      );
+    }
+    .fill-green  { background: var(--green);  box-shadow: 0 0 8px var(--green); }
+    .fill-cyan   { background: var(--cyan);   box-shadow: 0 0 8px var(--cyan);  }
+    .fill-yellow { background: var(--yellow); box-shadow: 0 0 8px var(--yellow);}
+    .fill-red    { background: var(--red);    box-shadow: 0 0 8px var(--red);   }
+
+    /* timeline */
+    .timeline { position: relative; padding-left: 1.5rem; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 4px;
+      background: repeating-linear-gradient(
+        to bottom,
+        var(--green) 0, var(--green) 8px,
+        transparent 8px, transparent 16px
+      );
+    }
+    .tl-item {
+      position: relative;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background: var(--bg2);
+      border: 2px solid var(--border);
+    }
+    .tl-item::before {
+      content: '■';
+      position: absolute;
+      left: -1.7rem;
+      color: var(--green);
+      font-size: 0.9rem;
+      top: 0.8rem;
+    }
+    .tl-date {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.4rem;
+      color: var(--yellow);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .tl-title {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.5rem;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+    .tl-desc { font-size: 1rem; color: var(--muted); }
+
+    /* interests */
+    .interests-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+    .interest-item {
+      background: var(--bg2);
+      border: 2px solid var(--border);
+      padding: 0.8rem;
+      text-align: center;
+      transition: border-color 0.1s;
+    }
+    .interest-item:hover { border-color: var(--green); }
+    .interest-icon { font-size: 1.8rem; display: block; margin-bottom: 0.3rem; }
+    .interest-label {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 0.4rem;
+      color: var(--cyan);
+    }
+
+    /* status box */
+    .status-box {
+      background: rgba(0,255,136,0.05);
+      border: 2px solid var(--green);
+      padding: 1rem 1.2rem;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+      color: var(--white);
+    }
+    .status-box strong { color: var(--green); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">&lt;<span>BE</span>S/&gt;</a>
+  <ul class="nav-links">
+    <li><a href="index.html"   >HOME</a></li>
+    <li><a href="sobre.html"    class="active">SOBRE</a></li>
+    <li><a href="projetos.html" >PROJETOS</a></li>
+    <li><a href="contato.html"  >CONTATO</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section class="section">
+
+    <p class="section-title">SOBRE MIM</p>
+    <p class="section-sub">// Carregando dados do jogador...</p>
+
+    <div class="status-box">
+      <strong>PLAYER:</strong> Bruno Eugênio Santos &nbsp;|&nbsp;
+      <strong>CURSO:</strong> Análise e Desenvolvimento de Sistemas &nbsp;|&nbsp;
+      <strong>NÍVEL:</strong> Em formação
+    </div>
+
+    <div class="about-grid">
+
+      <!-- BIO -->
+      <div class="pixel-box card">
+        <p class="card-title">QUEM SOU EU</p>
+        <p>
+          Sou Bruno Eugênio Santos, estudante de
+          <strong style="color:var(--cyan)">Análise e Desenvolvimento de Sistemas</strong>.
+          Minha jornada na tecnologia é movida pela curiosidade e pelo desejo de entender como
+          os sistemas funcionam — especialmente quando o assunto é <strong style="color:var(--red)">Segurança da Informação</strong>.
+        </p>
+        <br>
+        <p>
+          Ainda não possuo experiência profissional formal, mas compenso isso com dedicação
+          aos estudos e projetos acadêmicos. Acredito que cada linha de código é um passo
+          a mais nessa jornada.
+        </p>
+        <br>
+        <div>
+          <a href="https://github.com/brunoeugeniodev" target="_blank" rel="noopener" class="btn btn-green" style="font-size:0.4rem">
+            ▶ VER MEU GITHUB
+          </a>
+        </div>
+      </div>
+
+      <!-- SKILLS -->
+      <div class="pixel-box card">
+        <p class="card-title">HABILIDADES</p>
+
+        <div class="skill-item">
+          <div class="skill-label"><span>HTML / CSS</span><span>70%</span></div>
+          <div class="skill-bar"><div class="skill-fill fill-green" style="width:70%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-label"><span>JavaScript</span><span>50%</span></div>
+          <div class="skill-bar"><div class="skill-fill fill-cyan" style="width:50%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-label"><span>Python</span><span>55%</span></div>
+          <div class="skill-bar"><div class="skill-fill fill-yellow" style="width:55%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-label"><span>Linux / Redes</span><span>60%</span></div>
+          <div class="skill-bar"><div class="skill-fill fill-green" style="width:60%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-label"><span>Segurança da Info.</span><span>40%</span></div>
+          <div class="skill-bar"><div class="skill-fill fill-red" style="width:40%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-label"><span>Docker / Infra</span><span>35%</span></div>
+          <div class="skill-bar"><div class="skill-fill fill-cyan" style="width:35%"></div></div>
+        </div>
+        <p style="font-size:0.8rem;color:var(--muted);margin-top:0.5rem">* nível baseado no aprendizado acadêmico atual</p>
+      </div>
+
+      <!-- TIMELINE -->
+      <div class="pixel-box card">
+        <p class="card-title">LINHA DO TEMPO</p>
+        <div class="timeline">
+          <div class="tl-item">
+            <span class="tl-date">2023 — PRESENTE</span>
+            <p class="tl-title">ANÁLISE E DEV. DE SISTEMAS</p>
+            <p class="tl-desc">Cursando graduação com foco em desenvolvimento, redes e infraestrutura.</p>
+          </div>
+          <div class="tl-item">
+            <span class="tl-date">2024</span>
+            <p class="tl-title">PRIMEIRO CONTATO COM INFOSEC</p>
+            <p class="tl-desc">Início dos estudos em segurança da informação, criptografia e ethical hacking.</p>
+          </div>
+          <div class="tl-item">
+            <span class="tl-date">2024 — 2025</span>
+            <p class="tl-title">PROJETOS ACADÊMICOS</p>
+            <p class="tl-desc">Desenvolvimento de trabalhos práticos disponíveis no GitHub.</p>
+          </div>
+          <div class="tl-item" style="border-color:var(--green)">
+            <span class="tl-date" style="color:var(--green)">EM BREVE</span>
+            <p class="tl-title" style="color:var(--green)">EXPERIÊNCIA PROFISSIONAL</p>
+            <p class="tl-desc">Buscando oportunidades na área de dev e segurança.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERESSES -->
+      <div class="pixel-box card">
+        <p class="card-title">INTERESSES</p>
+        <div class="interests-grid">
+          <div class="interest-item">
+            <span class="interest-icon">🔐</span>
+            <span class="interest-label">CYBERSEC</span>
+          </div>
+          <div class="interest-item">
+            <span class="interest-icon">🐧</span>
+            <span class="interest-label">LINUX</span>
+          </div>
+          <div class="interest-item">
+            <span class="interest-icon">🌐</span>
+            <span class="interest-label">REDES</span>
+          </div>
+          <div class="interest-item">
+            <span class="interest-icon">🐳</span>
+            <span class="interest-label">DOCKER</span>
+          </div>
+          <div class="interest-item">
+            <span class="interest-icon">💻</span>
+            <span class="interest-label">DEV WEB</span>
+          </div>
+          <div class="interest-item">
+            <span class="interest-icon">🧩</span>
+            <span class="interest-label">CTF</span>
+          </div>
+        </div>
+        <br>
+        <div class="pixel-box" style="padding:1rem; background:rgba(255,60,90,0.05); border-color:var(--red)">
+          <p style="font-family:'Press Start 2P',monospace;font-size:0.45rem;color:var(--red);margin-bottom:0.5rem">🔐 FOCO ESPECIAL</p>
+          <p style="font-size:1rem;color:var(--white)">
+            Segurança da Informação é minha maior paixão dentro da TI.
+            Estudo conceitos de proteção de dados, vulnerabilidades e boas práticas de segurança
+            com o objetivo de atuar na área no futuro.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Feito com <span>♥</span> e muitos erros de sintaxe por
+    <a href="index.html">Bruno Eugênio Santos</a> &nbsp;|&nbsp;
+    <a href="https://github.com/brunoeugeniodev" target="_blank">GitHub</a>
+  </p>
+  <p style="margin-top:0.5rem;font-size:0.8rem;color:var(--border)">&copy; <span id="year"></span></p>
+</footer>
+
+<div class="status-bar">
+  <span>STATUS: ONLINE</span>
+  <span id="clock">--:--:--</span>
+  <span>v1.0.0</span>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  function tick() {
+    const n = new Date();
+    document.getElementById('clock').textContent =
+      String(n.getHours()).padStart(2,'0')+':'+String(n.getMinutes()).padStart(2,'0')+':'+String(n.getSeconds()).padStart(2,'0');
+  }
+  tick(); setInterval(tick,1000);
+</script>
+</body>
+</html>
